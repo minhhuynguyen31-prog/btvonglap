@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+       let number = parseInt(prompt("Nhập số lượng số nguyên tố cần in:"));
+let count = 0; // Đếm xem đã tìm được bao nhiêu số nguyên tố
+let n = 2;     // Số bắt đầu kiểm tra
+
+// Hàm kiểm tra một số có phải số nguyên tố không
+function isPrime(num) {
+    if (num < 2) return false;
+    if (num <= 3) return true;
+    if (num % 2 === 0 || num % 3 === 0) return false;
+
+    for (let i = 5; i * i <= num; i += 6) {
+        if (num % i === 0 || num % (i + 2) === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+// Vòng lặp cho đến khi tìm đủ số lượng 'number'
+while (count < number) {
+    if (isPrime(n)) {
+        document.write(n + " "); // In số nguyên tố ra màn hình
+        count++; // Chỉ tăng count khi đã tìm thấy 1 số nguyên tố
+    }
+    n++; // Tăng n để kiểm tra số tiếp theo
+}
+
+    </script>
+</body>
+
+</html>
